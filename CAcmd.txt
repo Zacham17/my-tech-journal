@@ -1,3 +1,25 @@
+
+WEB Server
+1. Run dhclient to request ip address (may take a moment)
+
+2. Type "ip addr" to see if you have an IP - write down IP for later. "ping -c1 google.com" for good measure.
+
+3. Install Apache/httpd with: yum install -y httpd   (may take a moment)
+
+4. You need to allow http through the firewall: firewall-cmd --permanent --add-port=80/tcp
+
+5. Reload firewall config: firewall-cmd --reload
+
+6. Verify that firewall is open: firewall-cmd --query-port=80/tcp (should report "yes")
+
+7. Start the httpd service: systemctl start httpd
+
+8. Let's check the current Apache status: systemctl status httpd
+
+
+
+
+
 on CA
 
 cd /etc/pki/CA
@@ -19,3 +41,23 @@ On CA
 
 openssl ca -out websrv.crt -infiles websrv.csr
 scp websrv.csr USER@WEBHOST
+
+
+HTTPS
+
+On your CentOS Web Server - make sure to copy the files into the following locations:
+Web Server certificate: /etc/pki/tls/certs
+Web server private key: /etc/pki/tls/private
+2. Install mod-ssl for Apache
+
+yum -y install mod_ssl
+3. Update /etc/httpd/conf.d/ssl.conf
+
+Find SSLCertificateFile and make sure the path and filename match your certificate file
+Find SSLCertificateKeyFile and make sure the path and filename match your key file
+Save file
+4. Update firewall to allow port 443 - reload firewall
+
+5. Restart httpd
+
+6. Browse to your server using HTTPS - You should have success
