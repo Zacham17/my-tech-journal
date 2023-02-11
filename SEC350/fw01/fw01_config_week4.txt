@@ -28,6 +28,7 @@ set firewall name LAN-to-DMZ rule 30 protocol 'tcp'
 set firewall name LAN-to-WAN default-action 'drop'
 set firewall name LAN-to-WAN enable-default-log
 set firewall name LAN-to-WAN rule 1 action 'accept'
+set firewall name LAN-to-WAN rule 1 state established 'enable'
 set firewall name WAN-to-DMZ default-action 'drop'
 set firewall name WAN-to-DMZ enable-default-log
 set firewall name WAN-to-DMZ rule 10 action 'accept'
