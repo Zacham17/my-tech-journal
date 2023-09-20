@@ -1,0 +1,30 @@
+vrrp_script chk_haproxy { 
+    script "/usr/bin/killall -0 haproxy"
+    interval 2 
+    weight 2 
+}
+  
+vrrp_instance LB_VIP {
+    interface ens160
+    state BACKUP	# set to BACKUP on the peer machine
+    priority 100	# set to 200 on the MASTER
+    virtual_router_id 50
+  
+
+    authentication {
+        auth_type AH
+        auth_pass Pa$$word123
+    }
+    unicast_src_ip 10.0.6.12 # Private IP address of the backup haproxy
+    unicast_peer {
+        10.0.6.11 # Private IP address of the master haproxy
+   }
+  
+    virtual_ipaddress {
+        10.0.6.10
+    }
+     
+    track_script {
+        chk_haproxy
+    }
+}
