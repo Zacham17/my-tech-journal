@@ -1,7 +1,7 @@
 <?php
 // Set the vars used for your DB connection, using new account credentials
 $username = "zachary";
-$password = 'Pa$$word123';
+$password = '********';
 $database = 'zach_db';
 $host = '10.0.6.10';
 
