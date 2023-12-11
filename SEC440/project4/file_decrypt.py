@@ -20,8 +20,9 @@ def main():
 
     # Decrypt all ".zam" files
     for filename in os.listdir('.'):
-        if filename.endswith('.getRekt'):
+        if filename.endswith('.getrekt'):
             decrypt_file(filename, symmetric_key)
+            os.remove(filename)
 
 if __name__ == "__main__":
     main()
