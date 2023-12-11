@@ -6,7 +6,6 @@ import os
 
 def generate_symmetric_key():
     rand_key = os.urandom(32)  # 32 bytes for a 256-bit key
-    print(f'{rand_key}')
     return rand_key
 
 def encrypt_file(file_path, symmetric_key):
