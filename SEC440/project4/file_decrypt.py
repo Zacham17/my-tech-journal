@@ -24,5 +24,7 @@ def main():
             decrypt_file(filename, symmetric_key)
             os.remove(filename)
 
+    print(f'Your files have been decrypted')
+
 if __name__ == "__main__":
     main()
