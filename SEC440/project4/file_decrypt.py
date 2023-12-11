@@ -10,7 +10,7 @@ def decrypt_file(file_path, symmetric_key):
     decryptor = cipher.decryptor()
     plaintext = decryptor.update(ciphertext) + decryptor.finalize()
 
-    with open(file_path[:-4], 'wb') as decrypted_file:
+    with open(file_path[:-7], 'wb') as decrypted_file:
         decrypted_file.write(plaintext)
 
 def main():
