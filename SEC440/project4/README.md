@@ -1,5 +1,6 @@
 # Ransomware Project
 The files in this project were used in the proof of concept for a ransomware scenario.
+The wiki page for this project can be found [here](https://github.com/Zacham17/my-tech-journal/wiki/Project-4---Ransomware-and-Mitigation)
 
 ### zamsomware.py
 This is the ransomware file. The python script generates a random symmetric key in memory that is then used to encrypt file that have a .zam file extension. Encrypted files are given a .getrekt file extension. Then, the symmetric key is encrypted using the attacker's public key and they encrypted symmetric key is stored as a file.
